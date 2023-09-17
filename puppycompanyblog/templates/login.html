@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+    .container{
+        height: 500px;
+        width: 600px;
+        /* border: 2px solid #007bff; */
+        /* outline: 2px solid #007bff; */
+    }
+    .loginform{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-top: 150px;
+        margin-left: 5vw;
+        
+    }
+    .email{
+        width: 200px;
+        height: 40px;
+        margin-bottom: 10px;
+        background-color: transparent;
+        border: 1px solid rgb(173, 169, 169);
+        border-radius: 5px;
+    }
+    .email:focus{
+        outline: 3px solid #007bff;
+
+    }
+    .email:invalid{
+        outline: 3px solid red;
+    }
+    .password{
+        width: 200px;
+        height: 40px;
+        margin-bottom: 10px;
+        background-color: transparent;
+        border: 1px solid rgb(173, 169, 169);
+        border-radius: 5px;
+    }
+    .password:focus{
+        outline: 3px solid #007bff;
+
+    }
+    .password:invalid{
+        outline: 3px solid red;
+    }
+    .submit{
+        width: 200px;
+        height: 40px;
+        margin-top: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: #007bff;
+        border-radius: 5px;
+        /* padding: 40px 16px; */
+    }
+</style>
+<div class="container">
+<form method="POST" class="loginform">
+    {# This hidden_tag is a CSRF security feature. #}
+    {{ form.hidden_tag() }}
+    {{ form.email.label }} {{ form.email(class="email") }}
+    {{ form.password.label }} {{ form.password(class="password") }}
+    {{ form.submit(class="submit") }}
+</form>
+</div>
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+    .register{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-left: 25vw;
+        margin-top: 10vh;
+    }
+    .email{
+        width: 200px;
+        height: 40px;
+        margin-bottom: 10px;
+        background-color: transparent;
+        border: 1px solid rgb(173, 169, 169);
+        border-radius: 5px;
+    }
+    
+    .email:focus{
+        outline: 3px solid #007bff;
+    }
+    
+    .username{
+        width: 200px;
+        height: 40px;
+        margin-bottom: 10px;
+        background-color: transparent;
+        border: 1px solid rgb(173, 169, 169);
+        border-radius: 5px;
+    }
+    .username:focus{
+        outline: 3px solid #007bff;
+    }
+   
+    .password{
+        width: 200px;
+        height: 40px;
+        margin-bottom: 10px;
+        background-color: transparent;
+        border: 1px solid rgb(173, 169, 169);
+        border-radius: 5px;
+    }
+    .password:focus{
+        outline: 3px solid #007bff;
+    }
+    
+    .passconfirm{
+        width: 200px;
+        height: 40px;
+        margin-bottom: 10px;
+        background-color: transparent;
+        border: 1px solid rgb(173, 169, 169);
+        border-radius: 5px;
+    }
+    .passconfirm:focus{
+        outline: 3px solid #007bff;
+    }
+    
+    .submit{
+        width: 200px;
+        height: 40px;
+        margin-top: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: #007bff;
+        border-radius: 5px;
+    }
+</style>
+<form method="POST" class="register">
+    {# This hidden_tag is a CSRF security feature. #}
+    {{ form.hidden_tag() }}
+    {{ form.email.label }} {{ form.email(class="email") }}<br>
+    {{ form.username.label }} {{ form.username(class="username") }}<br>
+    {{ form.password.label }} {{ form.password(class="password") }}<br>
+    {{ form.pass_confirm.label }} {{ form.pass_confirm(class="passconfirm") }}<br>
+    {{ form.submit(class="submit") }}
+</form>
+{% endblock %}
